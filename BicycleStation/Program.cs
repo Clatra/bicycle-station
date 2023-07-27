@@ -12,8 +12,6 @@ var app = builder.Build();
 app.UseSwagger();
 app.UseSwaggerUI();
 
-//List<RepairStation> repairStations = new List<RepairStation>();
-
 app.MapGet("/stations-data", (BicycleStationDbContext db) =>
 {
     return Results.Ok(db.RepairStations.ToList());
@@ -38,7 +36,6 @@ app.MapPut("/stations/{id}", (BicycleStationDbContext db, int id, [FromBody] Rep
         return Results.NotFound("Id is null");
     stationToUpdate.Capacity = updatedStation.Capacity;
     stationToUpdate.VisitorCapacity = updatedStation.VisitorCapacity;
-    stationToUpdate.HasPump = updatedStation.HasPump;
     stationToUpdate.HasTools = updatedStation.HasTools;
 
     db.SaveChanges();
