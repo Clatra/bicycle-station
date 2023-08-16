@@ -7,7 +7,8 @@
         public int Coordinates { get; set; }
         public int Capacity { get; set; }
         public int VisitorCapacity { get; set; }
-        public ICollection<BicyclePump> BicyclePumps { get; } = new List<BicyclePump>(); 
+
+        public ICollection<BicyclePump> BicyclePumps { get; set; }
         public bool HasTools { get; set; }
     }
 }
